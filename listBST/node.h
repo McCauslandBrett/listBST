@@ -26,12 +26,8 @@ class node
          node(const node<T> &other);
          //Destructor
           ~node();
-        //postcondition: overwrites given parameters, returns *This
-         node<T>& operator=(const node<T> &other);
-         node<T>& operator+=(size_t v);
-         node<T>& operator-=(size_t v);
 
-         //postcondition : node values overwritten
+        //postcondition : node values overwritten
          void setNodeValue(const T &d = T(), size_t c = 1);
          //Accessors
         const T& getData() const;
@@ -42,6 +38,10 @@ class node
          int operator++(int);
          int operator--();
          int operator--(int);
+         //postcondition: overwrites given parameters, returns *This
+          node<T>& operator=(const node<T> &other);
+          node<T>& operator+=(size_t v);
+          node<T>& operator-=(size_t v);
         //postcondition: Returns pointer from array for manipulation
          node<T>*& childPtr(WHICH_CHILD child);
          //postcondition: Returns pointer from array for value accesses
@@ -56,6 +56,7 @@ class node
          template<typename U>
          friend  bool operator<=(const node<U>& x, const node<U> &y);
 
+         //postcondition: retuns true if it is the same node, copys will evaluate false, address comparision
          template<typename U>
          friend bool operator==(const node<U>& x, const node<U> &y);
 
@@ -128,7 +129,6 @@ bool node<T>::isleaf()
 {
     return (this->getChildPtr(LEFT) == NULL && this->getChildPtr(RIGHT)==NULL) ;
 }
-//
 //------------------------------------------------
 template<typename T>
 node<T>::node(const T &d, size_t c)
@@ -193,6 +193,7 @@ size_t node<T>::getCount() const
 template<typename T>
 int node<T>::operator++(int)
 {
+    cout<<"called :operator++(int) "<<endl;
     count++;
     return count;
 }
@@ -223,8 +224,6 @@ node<T>*& node<T>::childPtr(WHICH_CHILD child)
 {
     return childPointer[child];
 }
-
-
 template<typename T>
 const node<T>* node<T>::getChildPtr(WHICH_CHILD child) const
 {
@@ -235,7 +234,6 @@ void node<T>::setChildPtr(node<T>* ptr, WHICH_CHILD child)
 {
     childPointer[child] = ptr;
 }
-
 template<typename T>
 void node<T>::copy(const node<T> &other)
 {
@@ -273,7 +271,6 @@ bool operator==(const node<U>& x, const node<U> &y)
 template<typename U>
 bool operator!=(const node<U>& x, const node<U> &y)
 {
-    cout<<"called"<<endl;
     return x.data != y.data;
 }
 

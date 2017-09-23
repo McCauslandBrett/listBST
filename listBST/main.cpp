@@ -1,22 +1,70 @@
 #include <iostream>
 #include "node.h"
 using namespace std;
-void nodeDriver();
+void nodeoperatorsDriver();
+void nodeincrementersDriver();
+
 int main()
 {
     system("clear");
-    nodeDriver();
+    nodeoperatorsDriver();
+    nodeincrementersDriver();
     cout<<endl;
     return 0;
 }
-void nodeDriver()
+void nodeoperatorsDriver()
 {
-     cout << "nodeDriver" << endl;
+     cout << "nodeDriver operators" << endl;
     node<int> r;
+    node<int> t;
+    t=r;
     node<int> l(3,2);
     cout<<r;
     r=l;
-    cout<<l;
+    cout<<l<<endl<<endl;
+
+    cout<<"r ="<<r<<endl;
+    cout<<"l = "<<l<<endl;
+    cout<<"t= "<<t<<endl<<endl;
+
+    if(r==r)
+        cout<< "r==r"<<endl;
+    if(l>t)
+        cout<<"(l>t)"<<endl;
+    if(r>=r)
+        cout<<"(r>=r)"<<endl;
+    if(t!=r)
+          cout<<"(t!=r)"<<endl;
+
+
+
+
+}
+void nodeincrementersDriver()
+{
+     cout << "nodeincrementersDriver" << endl;
+    node<int> r;
+    node<int> t;
+    t=r;
+    node<int> l(3,2);
+    cout<<r;
+    r=l;
+    cout<<l<<endl<<endl;
+
+    cout<<"r ="<<r<<endl;
+    cout<<"l = "<<l<<endl;
+    cout<<"t= "<<t<<endl<<endl;
+
+    cout<< "r++"<<endl;
+    cout<<r++<<endl;
+
+    cout<< "++r"<<endl;
+    cout<<++r<<endl;
+
+
+
+
+
 
 
 }
