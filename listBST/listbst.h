@@ -32,21 +32,35 @@ listBST<T>:: listBST(const listBST<T> &tree_reference)
  {
 
  }
-template<typename T>
-void preOrder(listBST<T>& tree_reference)
+template<typename T,class Process>
+void preOrder(node<T>*& ptr ,Process f)
 {
+    // 1. process the root
+    // 2. process the nodes in left subtree
+    // 3. process the nodes in right subtree
     if(root)
+    {
+        f(ptr);
+        preOrder(ptr->childPtr(LEFT),f);
+        preOrder(ptr->childPtr(RIGHT),f);
+
+    }
 }
 
-template<typename T>
-void postOrder(listBST<T>& tree_reference)
+template<typename T,class Process>
+void postOrder(node<T>& tree_reference)
 {
-
+    // 1. process the nodes in the left subtree
+    // 2. process the nodes in the right subtree
+    // 3. Process the root
 }
 
-template<typename T>
-void inOrder(listBST<T>& tree_reference)
+template<typename T,class Process>
+void inOrder(node<T>& tree_reference)
 {
+    // 1. process the nodes in the left subtree
+    // 2. Process the root
+    // 3. process the nodes in the right subtree
 
 }
 //NOTES
@@ -62,8 +76,23 @@ void inOrder(listBST<T>& tree_reference)
 // template <class Process, ,>
 //void apply(Process f,,)
 
-
-
+//TRAVERSAL TYPES
+/* pre-order
+ * 1. process the root
+ * 2. process the nodes in left subtree
+ * 3. process the nodes in right subtree
+ */
+/* post-order
+ * 1. process the nodes in the left subtree
+ * 2. process the nodes in the right subtree
+ * 3. Process the root
+ */
+/* in-order
+ * 1. process the nodes in the left subtree
+ * 2. Process the root
+ * 3. process the nodes in the right subtree
+ *
+ */
 
 
 
