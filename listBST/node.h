@@ -13,7 +13,7 @@
 using namespace std;
 
 //funtions I need (isleaf)
-enum WHICH_CHILD {RIGHT,LEFT};
+enum WHICH_CHILD {LEFT,RIGHT};
 enum Node_errors{Nullptr_node_error};
 template<typename T>
 class node
@@ -33,6 +33,8 @@ class node
         const T& getData() const;
         size_t getCount() const;
         bool isleaf();
+        //postcondition: Returns pointer from array for value accesses
+        const node<T>* getChildPtr(WHICH_CHILD child) const;
          // Count Increments and Decrements
          int operator++();
          int operator++(int);
@@ -44,8 +46,7 @@ class node
           node<T>& operator-=(size_t v);
         //postcondition: Returns pointer from array for manipulation
          node<T>*& childPtr(WHICH_CHILD child);
-         //postcondition: Returns pointer from array for value accesses
-         const node<T>* getChildPtr(WHICH_CHILD child) const;
+
         //postcondition: Assigns ptr to childptr array adress location child
          void setChildPtr(node<T>* ptr, WHICH_CHILD child);
 

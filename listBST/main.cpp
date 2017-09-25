@@ -1,15 +1,16 @@
 #include <iostream>
-#include "node.h"
+//#include "node.h"
 #include"listbst.h"
 using namespace std;
 void nodeoperatorsDriver();
 void nodeincrementersDriver();
-
+void listBSTDriver();
 int main()
 {
     system("clear");
-    nodeoperatorsDriver();
-    nodeincrementersDriver();
+    //nodeoperatorsDriver();
+    //nodeincrementersDriver();
+    listBSTDriver();
     cout<<endl;
     return 0;
 }
@@ -61,14 +62,18 @@ void nodeincrementersDriver()
 
     cout<< "++r"<<endl;
     cout<<++r<<endl;
-
-
-
-
-
-
+}
+void listBSTDriver()
+{
+    cout << "listBSTDriver" << endl;
+   listBST<int> r;
+   r.insert(4);
+   r.insert(5);
+   r.insert(6);
+  r.printDebug();
 
 }
+
 //NOTES
 //this pointer is an implicit parameter to all member functions.
 //Therefore, inside a member function,
