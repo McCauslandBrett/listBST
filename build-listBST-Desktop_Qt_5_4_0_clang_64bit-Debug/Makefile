@@ -157,6 +157,7 @@ DIST          = ../../../../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf \
+		../listBST/.qmake.stash \
 		../../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -321,6 +322,7 @@ Makefile: ../listBST/listBST.pro ../../../../Qt/5.4/clang_64/mkspecs/macx-clang/
 		../../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -445,6 +447,7 @@ Makefile: ../listBST/listBST.pro ../../../../Qt/5.4/clang_64/mkspecs/macx-clang/
 ../../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf:
 ../../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -505,7 +508,8 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../listBST/main.cpp ../listBST/node.h
+main.o: ../listBST/main.cpp ../listBST/listbst.h \
+		../listBST/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../listBST/main.cpp
 
 ####### Install

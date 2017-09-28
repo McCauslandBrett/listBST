@@ -40,12 +40,6 @@ listBST<T>::listBST()
  {
     root=NULL;
     traversal=pre_order;
-
-     //void (*funPtrArray[4]) (int x, int y);
-
-
-
-//   result = (*p[op]) (i, j); // op being the index of one of the four functions
  }
 template<typename T>
 listBST<T>:: listBST(const listBST<T> &tree_reference)
@@ -61,7 +55,6 @@ listBST<T>:: listBST(const listBST<T> &tree_reference)
  template<typename T>
  void  listBST<T>::print()
  {
-
 
  }
   template<typename T>
